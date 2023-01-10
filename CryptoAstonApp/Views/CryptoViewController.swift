@@ -10,34 +10,59 @@ import UIKit
 
 class CryptoViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
+    let cellID = CryptoCell.identifier
     
-    
-    private var secondLabel: UILabel = {
-        let label = UILabel()
-        label.text = "valid"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    private lazy var cryptoTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(CryptoCell.self, forCellReuseIdentifier: cellID)
+        return tableView
     }()
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = .white
         title = "Crypto"
         setViews()
         setConstraints()
     }
     
     func setViews() {
-        view.addSubview(secondLabel)
+    
+        view.addSubview(cryptoTableView)
     }
 }
 
 extension CryptoViewController {
     func setConstraints() {
         NSLayoutConstraint.activate([
-            secondLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            secondLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+
+            
+            cryptoTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            cryptoTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            cryptoTableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            cryptoTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         
         ])
     }
+}
+
+extension CryptoViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+    
 }

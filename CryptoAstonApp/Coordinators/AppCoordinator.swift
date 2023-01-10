@@ -24,7 +24,7 @@ class AppCoordinator: Coordinator {
         case .loginButtonTapped:
             var vc: UIViewController & Coordinating = CryptoViewController()
             vc.coordinator = self
-            navigationController?.pushViewController(vc, animated: true)
+            navigationController?.setViewControllers([vc], animated: true)
         }
     }
     
