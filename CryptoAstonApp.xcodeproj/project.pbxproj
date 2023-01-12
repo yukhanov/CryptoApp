@@ -22,6 +22,8 @@
 		00226D0729594F50004E37D0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00226D0629594F50004E37D0 /* AppCoordinator.swift */; };
 		00226D0B295AAA09004E37D0 /* CryptoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00226D0A295AAA09004E37D0 /* CryptoCell.swift */; };
 		00226D0D296D08B0004E37D0 /* Coins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00226D0C296D08B0004E37D0 /* Coins.swift */; };
+		00226D0F296F202E004E37D0 /* CoinsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00226D0E296F202E004E37D0 /* CoinsModel.swift */; };
+		00226D11296F232B004E37D0 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00226D10296F232B004E37D0 /* Parser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		00226D0629594F50004E37D0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		00226D0A295AAA09004E37D0 /* CryptoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCell.swift; sourceTree = "<group>"; };
 		00226D0C296D08B0004E37D0 /* Coins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coins.swift; sourceTree = "<group>"; };
+		00226D0E296F202E004E37D0 /* CoinsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsModel.swift; sourceTree = "<group>"; };
+		00226D10296F232B004E37D0 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 			children = (
 				00226CD129555374004E37D0 /* User.swift */,
 				00226D0C296D08B0004E37D0 /* Coins.swift */,
+				00226D0E296F202E004E37D0 /* CoinsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 			children = (
 				00226CD5295554AA004E37D0 /* Bindings */,
 				00226CD329555456004E37D0 /* LoginViewModel.swift */,
+				00226D10296F232B004E37D0 /* Parser.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -228,7 +234,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00226D0F296F202E004E37D0 /* CoinsModel.swift in Sources */,
 				00226D0729594F50004E37D0 /* AppCoordinator.swift in Sources */,
+				00226D11296F232B004E37D0 /* Parser.swift in Sources */,
 				00226CD229555374004E37D0 /* User.swift in Sources */,
 				00226CF929593ADD004E37D0 /* UIStackView+Extension.swift in Sources */,
 				00226D0529594B9B004E37D0 /* Coordinator.swift in Sources */,

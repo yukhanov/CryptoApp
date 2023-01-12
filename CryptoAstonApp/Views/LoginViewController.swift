@@ -10,6 +10,8 @@ import UIKit
 class LoginViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
     
+    let parser = Parser()
+    
     
     var loginViewModel = LoginViewModel()
     
@@ -49,6 +51,10 @@ class LoginViewController: UIViewController, Coordinating {
         setSubViews()
         setConstraints()
         bindViewModel()
+        
+        
+        parser.parse()
+        
         enterButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
     }
     
@@ -110,12 +116,6 @@ extension LoginViewController {
             statusLabel.topAnchor.constraint(equalTo: enterButton.bottomAnchor, constant: 20),
             statusLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-//        NSLayoutConstraint.activate([
-//            loginStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-//            loginStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-//            loginStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-//            loginStackView.heightAnchor.constraint(equalToConstant: 120)
-//        ])
     }
 }
 

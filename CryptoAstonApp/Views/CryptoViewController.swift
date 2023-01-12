@@ -11,6 +11,7 @@ import UIKit
 class CryptoViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
     let cellID = CryptoCell.identifier
+    let coinsModel = Coins.makeModel()
     
     private lazy var cryptoTableView: UITableView = {
         let tableView = UITableView()
@@ -52,11 +53,12 @@ extension CryptoViewController {
 
 extension CryptoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return coinsModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! CryptoCell
+        cell.setupCell(coinsModel[indexPath.row])
         return cell
     }
     
