@@ -10,9 +10,6 @@ import UIKit
 class LoginViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
     
-    let parser = Parser()
-    
-    
     var loginViewModel = LoginViewModel()
     
     private var nameTextField: UITextField = {
@@ -51,9 +48,7 @@ class LoginViewController: UIViewController, Coordinating {
         setSubViews()
         setConstraints()
         bindViewModel()
-        
-        
-        parser.parse()
+
         
         enterButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
     }
