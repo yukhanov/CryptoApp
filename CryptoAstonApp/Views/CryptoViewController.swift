@@ -15,7 +15,9 @@ class CryptoViewController: UIViewController, Coordinating {
     let cellID = CryptoCell.identifier
     let parser = Parser()
     var coins = [Data]()
-
+    
+    let serialQueue = DispatchQueue(label: "ru.yukhanov.CryptoAstonApp")
+    
     
     
     private lazy var cryptoTableView: UITableView = {
@@ -30,34 +32,34 @@ class CryptoViewController: UIViewController, Coordinating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        parser.parse { data in
-            self.coins.append(data)
-           // print(self.coins)
-        }
-        
         view.backgroundColor = .white
         title = "Crypto"
         
        
         setViews()
         setConstraints()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) {
-        
-            self.cryptoTableView.reloadData()
-        }
+        setDataToTableView()
+
         
         
-      
         print(coins)
-      
+        
+    }
+    
+    func setDataToTableView() {
+        self.parser.parse() { data in
+            self.coins.append(data)
+            DispatchQueue.main.async {
+                self.cryptoTableView.reloadData()
+            }
+            
+        }
+
     }
     
     
     func setViews() {
-    
+        
         view.addSubview(cryptoTableView)
     }
 }
@@ -81,7 +83,7 @@ extension CryptoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! CryptoCell
         cell.setupCell(coins[indexPath.row])
-       
+        
         return cell
     }
     

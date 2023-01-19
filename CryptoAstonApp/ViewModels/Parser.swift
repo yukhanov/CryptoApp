@@ -9,6 +9,8 @@ import Foundation
 
 class Parser {
     
+    
+    
     func parse(completion: @escaping (Data)->()) {
         let api = URL(string: "https://data.messari.io/api/v1/assets/btc/metrics")
         URLSession.shared.dataTask(with: api!) { data, response, error in
@@ -22,6 +24,8 @@ class Parser {
                 print(result)
                 
                 completion(result.data)
+                
+            
                 
             } catch {
                 print(error)
