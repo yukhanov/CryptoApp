@@ -12,7 +12,7 @@ class Parser {
     
     
     func parse(completion: @escaping (Data)->()) {
-        let api = URL(string: "https://data.messari.io/api/v1/assets/btc/metrics")
+        let api = URL(string: "https://data.messari.io/api/v1/assets/eth/metrics")
         URLSession.shared.dataTask(with: api!) { data, response, error in
             if error != nil {
                 print(error?.localizedDescription as Any)

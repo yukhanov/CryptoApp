@@ -11,14 +11,9 @@ import UIKit
 class CryptoViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
     
-    
     let cellID = CryptoCell.identifier
     let parser = Parser()
     var coins = [Data]()
-    
-    let serialQueue = DispatchQueue(label: "ru.yukhanov.CryptoAstonApp")
-    
-    
     
     private lazy var cryptoTableView: UITableView = {
         let tableView = UITableView()
@@ -35,15 +30,15 @@ class CryptoViewController: UIViewController, Coordinating {
         view.backgroundColor = .white
         title = "Crypto"
         
-       
         setViews()
         setConstraints()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let loader = self.loader()
+        loader
         setDataToTableView()
-
-        
-        
-        print(coins)
-        
+        self.stopLoader(loader: loader)
     }
     
     func setDataToTableView() {
@@ -52,14 +47,11 @@ class CryptoViewController: UIViewController, Coordinating {
             DispatchQueue.main.async {
                 self.cryptoTableView.reloadData()
             }
-            
         }
-
     }
     
     
     func setViews() {
-        
         view.addSubview(cryptoTableView)
     }
 }
