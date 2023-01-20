@@ -25,6 +25,10 @@ class AppCoordinator: Coordinator {
             var vc: UIViewController & Coordinating = CryptoViewController()
             vc.coordinator = self
             navigationController?.setViewControllers([vc], animated: true)
+        case .isUserAuthorised:
+            var vc: UIViewController & Coordinating = CryptoViewController()
+            vc.coordinator = self
+            navigationController?.setViewControllers([vc], animated: true)
         }
     }
     

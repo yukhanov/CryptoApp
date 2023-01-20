@@ -47,9 +47,9 @@ class LoginViewController: UIViewController, Coordinating {
         title = "Login"
         setSubViews()
         setConstraints()
+        checkAuthorised()
         bindViewModel()
 
-        
         enterButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
     }
     
@@ -73,28 +73,29 @@ class LoginViewController: UIViewController, Coordinating {
         })
     }
     
+    func checkAuthorised() {
+        if UserDefaults.standard.bool(forKey: "isAuthorised") == true {
+            coordinator?.eventOccured(with: .isUserAuthorised)
+        }
+    }
+    
     @objc func enterButtonTapped() {
         loginViewModel.enterButtonTapped(login: nameTextField.text ?? "", password: passwordTextField.text ?? "")
         statusLabel.isHidden = false
         if nameTextField.text == User.logins[0].login && passwordTextField.text == User.logins[0].password {
             coordinator?.eventOccured(with: .loginButtonTapped)
+            User.logins[0].isUserAuthorised = true
+            UserDefaults.standard.set(nameTextField.text, forKey: "login")
+            UserDefaults.standard.set(passwordTextField.text, forKey: "password")
+            UserDefaults.standard.set(true, forKey: "isAuthorised")
+            
         }
-        
-        
-        
-        
     }
-
-
 }
 
 extension LoginViewController {
     func setConstraints() {
         NSLayoutConstraint.activate([
-//            loginStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-//            loginStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-//            loginStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
-//
             nameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
             nameTextField.widthAnchor.constraint(equalToConstant: 250),

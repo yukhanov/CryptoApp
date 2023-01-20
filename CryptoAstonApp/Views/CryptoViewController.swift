@@ -83,5 +83,4 @@ extension CryptoViewController: UITableViewDelegate, UITableViewDataSource {
         return 60
     }
     
-    
 }
