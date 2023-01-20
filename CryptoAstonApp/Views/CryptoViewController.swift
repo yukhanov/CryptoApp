@@ -15,6 +15,7 @@ class CryptoViewController: UIViewController, Coordinating {
     let parser = Parser()
     var coins = [Data]()
     
+    
     private lazy var cryptoTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -24,21 +25,42 @@ class CryptoViewController: UIViewController, Coordinating {
         return tableView
     }()
     
+    private lazy var logOutButton: UIButton = {
+        let button = UIButton()
+        return button
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        
         title = "Crypto"
         
+       
+        leftBarButton()
         setViews()
         setConstraints()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let loader = self.loader()
-        loader
         setDataToTableView()
-        self.stopLoader(loader: loader)
+
+    }
+    
+    
+    func leftBarButton() {
+
+        let leftBarButton = UIBarButtonItem(title: "Logout",
+                                            style: UIBarButtonItem.Style.done,
+                                            target: self,
+                                            action: #selector(goToLogin))
+        navigationItem.leftBarButtonItem = leftBarButton
+
+    }
+    
+    @objc func goToLogin() {
+        UserDefaults.standard.set(false, forKey: "isAuthorised")
+        coordinator?.eventOccured(with: .logout)
     }
     
     func setDataToTableView() {
@@ -46,6 +68,7 @@ class CryptoViewController: UIViewController, Coordinating {
             self.coins.append(data)
             DispatchQueue.main.async {
                 self.cryptoTableView.reloadData()
+                self.stopLoader(loader: self.loader())
             }
         }
     }

@@ -10,6 +10,7 @@ import UIKit
 enum Event {
     case loginButtonTapped
     case isUserAuthorised
+    case logout
 }
 
 protocol Coordinator {

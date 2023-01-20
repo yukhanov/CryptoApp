@@ -7,12 +7,23 @@
 
 import Foundation
 
+enum CoinsName: String {
+    
+    case btc = "btc"
+    case eth = "eth"
+    case tron = "tron"
+    case luna = "luna"
+    case polkadot = "polkadot"
+    case dogecoin = "dogecoin"
+    case tether = "tether"
+    case stellar = "stellar"
+    case cardano = "cardano"
+    case xrp = "xrp"
+}
+
 class Parser {
-    
-    
-    
     func parse(completion: @escaping (Data)->()) {
-        let api = URL(string: "https://data.messari.io/api/v1/assets/eth/metrics")
+        let api = URL(string: "https://data.messari.io/api/v1/assets/\(CoinsName.stellar.rawValue)/metrics")
         URLSession.shared.dataTask(with: api!) { data, response, error in
             if error != nil {
                 print(error?.localizedDescription as Any)
@@ -20,13 +31,7 @@ class Parser {
             }
             do {
                 let result = try JSONDecoder().decode(Coin.self, from: data!)
-                //let result = try JSONSerialization.jsonObject(with: data!, options: .fragmentsAllowed)
-                print(result)
-                
                 completion(result.data)
-                
-            
-                
             } catch {
                 print(error)
             }

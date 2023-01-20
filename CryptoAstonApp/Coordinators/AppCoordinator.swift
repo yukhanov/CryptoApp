@@ -29,6 +29,10 @@ class AppCoordinator: Coordinator {
             var vc: UIViewController & Coordinating = CryptoViewController()
             vc.coordinator = self
             navigationController?.setViewControllers([vc], animated: true)
+        case .logout:
+            var vc: UIViewController & Coordinating = LoginViewController()
+            vc.coordinator = self
+            navigationController?.setViewControllers([vc], animated: true)
         }
     }
     
