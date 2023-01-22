@@ -43,7 +43,6 @@ class CryptoCell: UITableViewCell {
         nameOfCoinLabel.text = model.name
         costLabel.text = String(model.marketData.priceUSD)
         changeInValueLabel.text = String(model.marketData.percentChange24Hours)
-//        
     }
 
     
@@ -52,7 +51,7 @@ class CryptoCell: UITableViewCell {
         
 
         NSLayoutConstraint.activate([
-            nameOfCoinLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            nameOfCoinLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             nameOfCoinLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
          
      

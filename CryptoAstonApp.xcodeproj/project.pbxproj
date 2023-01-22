@@ -24,6 +24,7 @@
 		00226D0F296F202E004E37D0 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00226D0E296F202E004E37D0 /* Coin.swift */; };
 		00226D11296F232B004E37D0 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00226D10296F232B004E37D0 /* Parser.swift */; };
 		003995AD2979A8C100782B6C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003995AC2979A8C100782B6C /* UIViewController+Extension.swift */; };
+		003995AF297D416600782B6C /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003995AE297D416600782B6C /* Loader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		00226D0E296F202E004E37D0 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		00226D10296F232B004E37D0 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		003995AC2979A8C100782B6C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		003995AE297D416600782B6C /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				00226CBE29555340004E37D0 /* LoginViewController.swift */,
 				00226CFE29593BC5004E37D0 /* CustomButton.swift */,
 				00226D0029594A39004E37D0 /* CryptoViewController.swift */,
+				003995AE297D416600782B6C /* Loader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				00226D0B295AAA09004E37D0 /* CryptoCell.swift in Sources */,
 				00226CD429555456004E37D0 /* LoginViewModel.swift in Sources */,
 				00226CBD29555340004E37D0 /* SceneDelegate.swift in Sources */,
+				003995AF297D416600782B6C /* Loader.swift in Sources */,
 				00226D0129594A39004E37D0 /* CryptoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
