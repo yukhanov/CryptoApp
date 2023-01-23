@@ -32,6 +32,7 @@ class CryptoViewController: UIViewController, Coordinating {
     
     private lazy var spinner: CustomSpinner = {
         let spinner = CustomSpinner(squareLength: 100)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
         return spinner
     }()
   
@@ -41,21 +42,19 @@ class CryptoViewController: UIViewController, Coordinating {
         super.viewDidLoad()
         
         title = "Crypto"
-        //loader()
         
-        
-       
         leftBarButton()
+        rightBarItem()
         setViews()
         setConstraints()
-        setDataToTableView()
+        
     }
     
 
-    override func viewDidAppear(_ animated: Bool) {
-       
+    override func viewWillAppear(_ animated: Bool) {
+       super.viewWillAppear(animated)
         
-     
+        setDataToTableView()
         
     }
     
@@ -74,6 +73,22 @@ class CryptoViewController: UIViewController, Coordinating {
 
     }
     
+    func rightBarItem() {
+        let rightBarItem = UIBarButtonItem(barButtonSystemItem: .refresh,
+                                           target: self,
+                                           action: #selector(sortArrayByChanging))
+        navigationItem.rightBarButtonItem = rightBarItem
+    }
+    
+    @objc func sortArrayByChanging() {
+      
+        print(coins[0].marketData.percentChange24Hours)
+        coins.forEach { data in
+            coins.sort(by: { $0.marketData.percentChange24Hours > $1.marketData.percentChange24Hours} )
+        }
+        cryptoTableView.reloadData()
+    }
+    
     @objc func goToLogin() {
         UserDefaults.standard.set(false, forKey: "isAuthorised")
         coordinator?.eventOccured(with: .logout)
@@ -86,11 +101,12 @@ class CryptoViewController: UIViewController, Coordinating {
             DispatchQueue.main.async {
                 self.cryptoTableView.reloadData()
                 self.spinner.stopAnimation()
+                print(self.coins)
 
             }
-            //self.stopLoader(loader: self.loader())
         }
     }
+    
     
  
     
@@ -109,10 +125,6 @@ extension CryptoViewController {
             cryptoTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             cryptoTableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             cryptoTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-        NSLayoutConstraint.activate([
-            spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 }
