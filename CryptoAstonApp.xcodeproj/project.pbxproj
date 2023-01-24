@@ -23,8 +23,8 @@
 		00226D0B295AAA09004E37D0 /* CryptoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00226D0A295AAA09004E37D0 /* CryptoCell.swift */; };
 		00226D0F296F202E004E37D0 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00226D0E296F202E004E37D0 /* Coin.swift */; };
 		00226D11296F232B004E37D0 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00226D10296F232B004E37D0 /* Parser.swift */; };
-		003995AD2979A8C100782B6C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003995AC2979A8C100782B6C /* UIViewController+Extension.swift */; };
 		003995AF297D416600782B6C /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003995AE297D416600782B6C /* Loader.swift */; };
+		003995B1297E573F00782B6C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003995B0297E573F00782B6C /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +46,8 @@
 		00226D0A295AAA09004E37D0 /* CryptoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCell.swift; sourceTree = "<group>"; };
 		00226D0E296F202E004E37D0 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		00226D10296F232B004E37D0 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
-		003995AC2979A8C100782B6C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		003995AE297D416600782B6C /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		003995B0297E573F00782B6C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +107,7 @@
 				00226CFE29593BC5004E37D0 /* CustomButton.swift */,
 				00226D0029594A39004E37D0 /* CryptoViewController.swift */,
 				003995AE297D416600782B6C /* Loader.swift */,
+				003995B0297E573F00782B6C /* DetailViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -133,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				00226CF829593ADD004E37D0 /* UIStackView+Extension.swift */,
-				003995AC2979A8C100782B6C /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -240,11 +240,11 @@
 				00226D0F296F202E004E37D0 /* Coin.swift in Sources */,
 				00226D0729594F50004E37D0 /* AppCoordinator.swift in Sources */,
 				00226D11296F232B004E37D0 /* Parser.swift in Sources */,
-				003995AD2979A8C100782B6C /* UIViewController+Extension.swift in Sources */,
 				00226CD229555374004E37D0 /* User.swift in Sources */,
 				00226CF929593ADD004E37D0 /* UIStackView+Extension.swift in Sources */,
 				00226D0529594B9B004E37D0 /* Coordinator.swift in Sources */,
 				00226CBF29555340004E37D0 /* LoginViewController.swift in Sources */,
+				003995B1297E573F00782B6C /* DetailViewController.swift in Sources */,
 				00226CBB29555340004E37D0 /* AppDelegate.swift in Sources */,
 				00226CFF29593BC5004E37D0 /* CustomButton.swift in Sources */,
 				00226CD729555503004E37D0 /* Dynamic.swift in Sources */,

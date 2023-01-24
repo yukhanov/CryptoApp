@@ -11,6 +11,7 @@ enum Event {
     case loginButtonTapped
     case isUserAuthorised
     case logout
+    case goToDetailVC
 }
 
 protocol Coordinator {

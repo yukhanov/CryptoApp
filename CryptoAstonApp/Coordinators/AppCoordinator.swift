@@ -32,8 +32,13 @@ class AppCoordinator: Coordinator {
         case .logout:
             var vc: UIViewController & Coordinating = LoginViewController()
             vc.coordinator = self
+            navigationController?.setViewControllers([vc], animated: false)
+        case .goToDetailVC:
+            var vc: UIViewController & Coordinating = DetailViewController()
+            vc.coordinator = self
             navigationController?.setViewControllers([vc], animated: true)
         }
+        
     }
     
     

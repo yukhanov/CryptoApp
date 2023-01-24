@@ -14,6 +14,7 @@ class CryptoViewController: UIViewController, Coordinating {
     let cellID = CryptoCell.identifier
     let parser = Parser()
     var coins = [Data]()
+    var isSortedByAscending = true
     
     
     private lazy var cryptoTableView: UITableView = {
@@ -81,17 +82,24 @@ class CryptoViewController: UIViewController, Coordinating {
     }
     
     @objc func sortArrayByChanging() {
-      
-        print(coins[0].marketData.percentChange24Hours)
-        coins.forEach { data in
+        
+        if isSortedByAscending == false {
             coins.sort(by: { $0.marketData.percentChange24Hours > $1.marketData.percentChange24Hours} )
+            isSortedByAscending = true
+        } else {
+            coins.sort(by: { $0.marketData.percentChange24Hours < $1.marketData.percentChange24Hours} )
+            isSortedByAscending = false
         }
+        
         cryptoTableView.reloadData()
+       
     }
+    
     
     @objc func goToLogin() {
         UserDefaults.standard.set(false, forKey: "isAuthorised")
         coordinator?.eventOccured(with: .logout)
+        self.dismiss(animated: false)
     }
     
     func setDataToTableView() {
@@ -143,5 +151,10 @@ extension CryptoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        coordinator?.eventOccured(with: .goToDetailVC)
+    }
+    
     
 }
