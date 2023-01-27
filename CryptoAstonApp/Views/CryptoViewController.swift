@@ -12,12 +12,12 @@ class CryptoViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
     
     let cellID = CryptoCell.identifier
-    let parser = Parser()
-    var coins = [Data]()
     var isSortedByAscending = true
+    private let cryptoViewModel = CryptoViewModel()
+    var coins = [Data]()
+
     
-    
-    private lazy var cryptoTableView: UITableView = {
+    lazy var cryptoTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
@@ -55,13 +55,10 @@ class CryptoViewController: UIViewController, Coordinating {
     override func viewWillAppear(_ animated: Bool) {
        super.viewWillAppear(animated)
         
-        setDataToTableView()
+        bindViewModel()
         
     }
     
-    override func viewDidLayoutSubviews() {
-        
-    }
 
     
     
@@ -84,13 +81,13 @@ class CryptoViewController: UIViewController, Coordinating {
     @objc func sortArrayByChanging() {
         
         if isSortedByAscending == false {
-            coins.sort(by: { $0.marketData.percentChange24Hours > $1.marketData.percentChange24Hours} )
+            cryptoViewModel.coinsArray.value.sort(by: { $0.marketData.percentChange24Hours > $1.marketData.percentChange24Hours} )
             isSortedByAscending = true
         } else {
-            coins.sort(by: { $0.marketData.percentChange24Hours < $1.marketData.percentChange24Hours} )
+            cryptoViewModel.coinsArray.value.sort(by: { $0.marketData.percentChange24Hours < $1.marketData.percentChange24Hours} )
             isSortedByAscending = false
         }
-        
+
         cryptoTableView.reloadData()
        
     }
@@ -102,21 +99,19 @@ class CryptoViewController: UIViewController, Coordinating {
         self.dismiss(animated: false)
     }
     
-    func setDataToTableView() {
-        self.parser.parse() { data in
-            self.coins.append(data)
-         
-            DispatchQueue.main.async {
-                self.cryptoTableView.reloadData()
-                self.spinner.stopAnimation()
-                print(self.coins)
 
+    func bindViewModel () {
+        cryptoViewModel.getDataFromApi()
+        self.cryptoViewModel.coinsArray.bind { coins in
+            self.coins = coins
+            DispatchQueue.main.async {
+                self.spinner.stopAnimation()
+                self.cryptoTableView.reloadData()
             }
+            
         }
+        
     }
-    
-    
- 
     
     
     func setViews() {
@@ -139,12 +134,12 @@ extension CryptoViewController {
 
 extension CryptoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return coins.count
+        return cryptoViewModel.coinsArray.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! CryptoCell
-        cell.setupCell(coins[indexPath.row])
+        cell.setupCell(cryptoViewModel.coinsArray.value[indexPath.row])
         return cell
     }
     
@@ -155,6 +150,4 @@ extension CryptoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         coordinator?.eventOccured(with: .goToDetailVC)
     }
-    
-    
 }

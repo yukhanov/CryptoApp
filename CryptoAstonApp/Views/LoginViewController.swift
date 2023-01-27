@@ -11,6 +11,10 @@ class LoginViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
     
     var loginViewModel = LoginViewModel()
+ 
+    
+   
+    
     
     private var nameTextField: UITextField = {
         let textField = UITextField()
@@ -49,6 +53,11 @@ class LoginViewController: UIViewController, Coordinating {
         setConstraints()
         checkAuthorised()
         bindViewModel()
+        
+        
+
+        
+        
 
         enterButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
     }
@@ -88,6 +97,8 @@ class LoginViewController: UIViewController, Coordinating {
             UserDefaults.standard.set(nameTextField.text, forKey: "login")
             UserDefaults.standard.set(passwordTextField.text, forKey: "password")
             UserDefaults.standard.set(true, forKey: "isAuthorised")
+            
+            
             
         }
     }

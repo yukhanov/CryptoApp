@@ -1,5 +1,5 @@
 //
-//  Loader.swift
+//  CustomSpinner.swift
 //  CryptoAstonApp
 //
 //  Created by Сергей Юханов on 22.01.2023.
@@ -54,21 +54,17 @@ final class CustomSpinner: UIView {
         let rect = CGRect(x: size/4, y: size/4, width: size/4, height: size/4)
         let path = UIBezierPath(ovalIn: rect)
         shapeLayer.path = path.cgPath
-        
         replicatorLayer.frame = bounds
         replicatorLayer.position = CGPoint(x: size, y:  size)
     }
     
-    // MARK: - Animation's public functions
     
     func startAnimation(delay: TimeInterval, replicates: Int) {
         replicatorLayer.instanceCount = replicates
         replicatorLayer.instanceDelay = delay
-        
         let angle = CGFloat(2.0 * Double.pi) / CGFloat(replicates)
         replicatorLayer.instanceTransform = CATransform3DMakeRotation(angle, 0.0, 0.0, 1.0)
         shapeLayer.opacity = 0
-        
         let opacityAnimation = CABasicAnimation(keyPath: "opacity")
         opacityAnimation.fromValue = 0.1
         opacityAnimation.toValue = 0.8
