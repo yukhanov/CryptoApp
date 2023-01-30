@@ -53,12 +53,6 @@ class LoginViewController: UIViewController, Coordinating {
         setConstraints()
         checkAuthorised()
         bindViewModel()
-        
-        
-
-        
-        
-
         enterButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
     }
     

@@ -8,14 +8,21 @@
 import UIKit
 
 
-class DetailViewController: UIViewController, Coordinating {
-    var coordinator: Coordinator?
+class DetailViewController: UIViewController, CoordinatingAndData {
+    var detailCoinsData = [Data]()
     
-    private lazy var detailTextView: UITextView = {
-        let textView = UITextView()
-        textView.text = "Hello"
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        return textView
+    var coordinator: Coordinator?
+    private let detailViewModel = DetailViewModel()
+   
+
+   
+  
+    private lazy var detailLabel: UILabel = {
+        let label = UILabel()
+        label.text = "HI"
+        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
 
@@ -23,17 +30,23 @@ class DetailViewController: UIViewController, Coordinating {
         super.viewDidLoad()
         navigationController?.title = "Detail"
         view.backgroundColor = .systemBackground
+        view.addSubview(detailLabel)
         setConstraints()
+        print("hello world")
+      
+        print(detailCoinsData)
+        
     }
-    
     
 }
 
 extension DetailViewController {
     func setConstraints() {
         NSLayoutConstraint.activate([
-            detailTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-           // detailTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            detailLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            detailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            detailLabel.heightAnchor.constraint(equalToConstant: 20),
+            detailLabel.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
 }

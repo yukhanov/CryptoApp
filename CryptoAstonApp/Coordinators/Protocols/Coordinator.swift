@@ -11,7 +11,7 @@ enum Event {
     case loginButtonTapped
     case isUserAuthorised
     case logout
-    case goToDetailVC
+    case goToDetailVC(Data)
 }
 
 protocol Coordinator {
@@ -23,4 +23,9 @@ protocol Coordinator {
 
 protocol Coordinating {
     var coordinator: Coordinator? { get set }
+}
+
+protocol CoordinatingAndData {
+    var coordinator: Coordinator? { get set }
+    var detailCoinsData: [Data] { get set }
 }

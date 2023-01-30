@@ -15,6 +15,7 @@ class CryptoViewController: UIViewController, Coordinating {
     var isSortedByAscending = true
     private let cryptoViewModel = CryptoViewModel()
     var coins = [Data]()
+    var coinSelected: ((Data) -> Void)?
 
     
     lazy var cryptoTableView: UITableView = {
@@ -148,6 +149,12 @@ extension CryptoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.eventOccured(with: .goToDetailVC)
+        let coin = coins[indexPath.row]
+        cryptoViewModel.coinDetail.value.append(coin)
+        print(cryptoViewModel.coinDetail.value)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    
+        coordinator?.eventOccured(with: .goToDetailVC(coin))
     }
 }

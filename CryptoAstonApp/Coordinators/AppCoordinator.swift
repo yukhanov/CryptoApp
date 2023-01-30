@@ -16,6 +16,7 @@ class AppCoordinator: Coordinator {
     func start() {
         var vc: UIViewController & Coordinating = LoginViewController()
         vc.coordinator = self
+        
         navigationController?.setViewControllers([vc], animated: false)
     }
     
@@ -33,12 +34,12 @@ class AppCoordinator: Coordinator {
             var vc: UIViewController & Coordinating = LoginViewController()
             vc.coordinator = self
             navigationController?.setViewControllers([vc], animated: false)
-        case .goToDetailVC:
-            var vc: UIViewController & Coordinating = DetailViewController()
+        case .goToDetailVC(let data):
+            var vc: UIViewController & CoordinatingAndData = DetailViewController()
+            vc.detailCoinsData.append(data)
             vc.coordinator = self
             navigationController?.setViewControllers([vc], animated: true)
         }
-        
     }
     
     

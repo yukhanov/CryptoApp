@@ -14,6 +14,8 @@ struct Coin: Codable {
     
 }
 struct Data: Codable {
+ 
+    
     let name: String?
     let marketData: MarketData
     

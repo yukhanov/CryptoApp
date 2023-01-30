@@ -110,11 +110,11 @@
 			isa = PBXGroup;
 			children = (
 				00226CBE29555340004E37D0 /* LoginViewController.swift */,
-				00226CFE29593BC5004E37D0 /* CustomButton.swift */,
 				00226D0029594A39004E37D0 /* CryptoViewController.swift */,
+				003995B0297E573F00782B6C /* DetailViewController.swift */,
+				00226CFE29593BC5004E37D0 /* CustomButton.swift */,
 				00226D0A295AAA09004E37D0 /* CryptoCell.swift */,
 				003995AE297D416600782B6C /* CustomSpinner.swift */,
-				003995B0297E573F00782B6C /* DetailViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

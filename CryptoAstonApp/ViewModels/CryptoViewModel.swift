@@ -7,20 +7,19 @@
 
 import UIKit
 
-class CryptoViewModel {
+struct CryptoViewModel {
     
     var parser = Parser()
     var coinsArray = Dynamic(value: [Data]())
+    var coinDetail = Dynamic(value: [Data]())
+    var detailViewModel = DetailViewModel()
+  
     
     func getDataFromApi() {
-      
             parser.parse { data in
                 self.coinsArray.value.append(data)
             }
     }
-    
-    func sendDataToDetail() {
-        
-    }
+
     
 }
