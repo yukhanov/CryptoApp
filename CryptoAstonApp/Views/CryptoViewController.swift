@@ -37,8 +37,6 @@ class CryptoViewController: UIViewController, Coordinating {
         return spinner
     }()
   
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Crypto"
@@ -55,9 +53,6 @@ class CryptoViewController: UIViewController, Coordinating {
        super.viewWillAppear(animated)
         bindViewModel()
     }
-    
-
-    
     
     func leftBarButton() {
         let leftBarButton = UIBarButtonItem(title: "Logout",
