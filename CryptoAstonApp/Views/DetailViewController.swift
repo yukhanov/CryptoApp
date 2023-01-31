@@ -10,16 +10,17 @@ import UIKit
 
 class DetailViewController: UIViewController, CoordinatingAndData {
     var detailCoinsData = [Data]()
-    
+
     var coordinator: Coordinator?
     private let detailViewModel = DetailViewModel()
    
-    private lazy var nameStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
+    private lazy var nameStackView = HorizontalStackView()
+    private lazy var openCloseStackView = HorizontalStackView()
+    private lazy var openStackView = VerticalStackView()
+    private lazy var closeStackView = VerticalStackView()
+    private lazy var highLowStackView = HorizontalStackView()
+    private lazy var highStackView = VerticalStackView()
+    private lazy var lowStackView = VerticalStackView()
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -37,9 +38,7 @@ class DetailViewController: UIViewController, CoordinatingAndData {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
     private lazy var priceLabel = CustomLabel()
-    
     private lazy var last24HLabel: UILabel = {
         let label = UILabel()
         label.font = label.font.withSize(20)
@@ -49,30 +48,7 @@ class DetailViewController: UIViewController, CoordinatingAndData {
         return label
     }()
     
-    private lazy var openCloseStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 10
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
 
-    private lazy var openStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 10
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
-    private lazy var closeStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 10
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
     private lazy var openLabel: UILabel = {
         let label = UILabel()
         label.text = "Open"
@@ -82,7 +58,6 @@ class DetailViewController: UIViewController, CoordinatingAndData {
     }()
     
     private lazy var openValueLabel = CustomLabel()
-    
     private lazy var closeLabel: UILabel = {
         let label = UILabel()
         label.text = "Close"
@@ -99,30 +74,7 @@ class DetailViewController: UIViewController, CoordinatingAndData {
         return label
     }()
     
-    private lazy var highLowStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 10
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
-    private lazy var highStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 10
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
-    private lazy var lowStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 10
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
+
     private lazy var highLabel: UILabel = {
         let label = UILabel()
         label.text = "High"
@@ -132,7 +84,6 @@ class DetailViewController: UIViewController, CoordinatingAndData {
     }()
     
     private lazy var highValueLabel = CustomLabel()
-    
     private lazy var lowLabel: UILabel = {
         let label = UILabel()
         label.text = "Low"

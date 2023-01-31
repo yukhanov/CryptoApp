@@ -28,6 +28,8 @@
 		003995B829800A4700782B6C /* CryptoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003995B729800A4700782B6C /* CryptoViewModel.swift */; };
 		003995BA2983760400782B6C /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003995B92983760400782B6C /* DetailViewModel.swift */; };
 		004DDBE62988E6A800C8DB9A /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004DDBE52988E6A800C8DB9A /* CustomLabel.swift */; };
+		004DDBE829890A7300C8DB9A /* HorizontalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004DDBE729890A7300C8DB9A /* HorizontalStackView.swift */; };
+		004DDBEA29890B4200C8DB9A /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004DDBE929890B4200C8DB9A /* VerticalStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		003995B729800A4700782B6C /* CryptoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewModel.swift; sourceTree = "<group>"; };
 		003995B92983760400782B6C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		004DDBE52988E6A800C8DB9A /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		004DDBE729890A7300C8DB9A /* HorizontalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalStackView.swift; sourceTree = "<group>"; };
+		004DDBE929890B4200C8DB9A /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,8 @@
 				00226CFE29593BC5004E37D0 /* CustomButton.swift */,
 				00226D0A295AAA09004E37D0 /* CryptoCell.swift */,
 				003995AE297D416600782B6C /* CustomSpinner.swift */,
+				004DDBE729890A7300C8DB9A /* HorizontalStackView.swift */,
+				004DDBE929890B4200C8DB9A /* VerticalStackView.swift */,
 				004DDBE52988E6A800C8DB9A /* CustomLabel.swift */,
 			);
 			path = Views;
@@ -259,12 +265,14 @@
 				003995B1297E573F00782B6C /* DetailViewController.swift in Sources */,
 				00226CBB29555340004E37D0 /* AppDelegate.swift in Sources */,
 				00226CFF29593BC5004E37D0 /* CustomButton.swift in Sources */,
+				004DDBEA29890B4200C8DB9A /* VerticalStackView.swift in Sources */,
 				00226CD729555503004E37D0 /* Dynamic.swift in Sources */,
 				00226D0B295AAA09004E37D0 /* CryptoCell.swift in Sources */,
 				00226CD429555456004E37D0 /* LoginViewModel.swift in Sources */,
 				00226CBD29555340004E37D0 /* SceneDelegate.swift in Sources */,
 				003995AF297D416600782B6C /* CustomSpinner.swift in Sources */,
 				00226D0129594A39004E37D0 /* CryptoViewController.swift in Sources */,
+				004DDBE829890A7300C8DB9A /* HorizontalStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

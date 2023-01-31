@@ -12,7 +12,7 @@ struct CryptoViewModel {
     var parser = Parser()
     var coinsArray = Dynamic(value: [Data]())
     var coinDetail = Dynamic(value: [Data]())
-    var detailViewModel = DetailViewModel()
+    
   
     
     func getDataFromApi() {
