@@ -91,9 +91,6 @@ class LoginViewController: UIViewController, Coordinating {
             UserDefaults.standard.set(nameTextField.text, forKey: "login")
             UserDefaults.standard.set(passwordTextField.text, forKey: "password")
             UserDefaults.standard.set(true, forKey: "isAuthorised")
-            
-            
-            
         }
     }
 }
