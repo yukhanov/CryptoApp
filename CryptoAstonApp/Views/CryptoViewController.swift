@@ -10,7 +10,6 @@ import UIKit
 
 class CryptoViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
-    
     let cellID = CryptoCell.identifier
     var isSortedByAscending = true
     private let cryptoViewModel = CryptoViewModel()
@@ -42,9 +41,8 @@ class CryptoViewController: UIViewController, Coordinating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "Crypto"
-        
+        view.backgroundColor = .systemBackground
         leftBarButton()
         rightBarItem()
         setViews()
@@ -55,9 +53,7 @@ class CryptoViewController: UIViewController, Coordinating {
 
     override func viewWillAppear(_ animated: Bool) {
        super.viewWillAppear(animated)
-        
         bindViewModel()
-        
     }
     
 
@@ -80,7 +76,6 @@ class CryptoViewController: UIViewController, Coordinating {
     }
     
     @objc func sortArrayByChanging() {
-        
         if isSortedByAscending == false {
             cryptoViewModel.coinsArray.value.sort(by: { $0.marketData.percentChange24Hours > $1.marketData.percentChange24Hours} )
             isSortedByAscending = true
@@ -109,9 +104,7 @@ class CryptoViewController: UIViewController, Coordinating {
                 self.spinner.stopAnimation()
                 self.cryptoTableView.reloadData()
             }
-            
         }
-        
     }
     
     
@@ -152,9 +145,7 @@ extension CryptoViewController: UITableViewDelegate, UITableViewDataSource {
         let coin = coins[indexPath.row]
         cryptoViewModel.coinDetail.value.append(coin)
         print(cryptoViewModel.coinDetail.value)
-        
         tableView.deselectRow(at: indexPath, animated: true)
-    
         coordinator?.eventOccured(with: .goToDetailVC(coin))
     }
 }

@@ -11,10 +11,6 @@ class DetailViewModel {
     
     var coin = Dynamic(value: [Data]())
     var infoAboutCoin = Dynamic(value: [Data]())
-    var completionHandler: ((Data) -> Void)?
+
     
-    
-    func getDataFromCryptoVC() {
-        
-    }
 }

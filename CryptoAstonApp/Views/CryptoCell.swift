@@ -41,8 +41,8 @@ class CryptoCell: UITableViewCell {
     
     func setupCell(_ model: Data) {
         nameOfCoinLabel.text = model.name
-        costLabel.text = String(model.marketData.priceUSD)
-        changeInValueLabel.text = String(model.marketData.percentChange24Hours)
+        costLabel.text = String(format: "%.2f", model.marketData.priceUSD) + "$"
+        changeInValueLabel.text = String(format: "%.2f", model.marketData.percentChange24Hours) + "%"
     }
 
     

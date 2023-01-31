@@ -25,9 +25,9 @@
 		00226D11296F232B004E37D0 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00226D10296F232B004E37D0 /* Parser.swift */; };
 		003995AF297D416600782B6C /* CustomSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003995AE297D416600782B6C /* CustomSpinner.swift */; };
 		003995B1297E573F00782B6C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003995B0297E573F00782B6C /* DetailViewController.swift */; };
-		003995B6297FA54A00782B6C /* CryptoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003995B5297FA54A00782B6C /* CryptoProtocol.swift */; };
 		003995B829800A4700782B6C /* CryptoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003995B729800A4700782B6C /* CryptoViewModel.swift */; };
 		003995BA2983760400782B6C /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003995B92983760400782B6C /* DetailViewModel.swift */; };
+		004DDBE62988E6A800C8DB9A /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004DDBE52988E6A800C8DB9A /* CustomLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,9 +51,9 @@
 		00226D10296F232B004E37D0 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		003995AE297D416600782B6C /* CustomSpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSpinner.swift; sourceTree = "<group>"; };
 		003995B0297E573F00782B6C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		003995B5297FA54A00782B6C /* CryptoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoProtocol.swift; sourceTree = "<group>"; };
 		003995B729800A4700782B6C /* CryptoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewModel.swift; sourceTree = "<group>"; };
 		003995B92983760400782B6C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		004DDBE52988E6A800C8DB9A /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,6 @@
 		00226CB929555340004E37D0 /* CryptoAstonApp */ = {
 			isa = PBXGroup;
 			children = (
-				003995B4297FA53200782B6C /* Protocols */,
 				00226D0229594B7F004E37D0 /* Coordinators */,
 				00226CFD29593B13004E37D0 /* Resources */,
 				00226CFC29593B01004E37D0 /* Extensions */,
@@ -115,6 +114,7 @@
 				00226CFE29593BC5004E37D0 /* CustomButton.swift */,
 				00226D0A295AAA09004E37D0 /* CryptoCell.swift */,
 				003995AE297D416600782B6C /* CustomSpinner.swift */,
+				004DDBE52988E6A800C8DB9A /* CustomLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,14 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				00226D0429594B9B004E37D0 /* Coordinator.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		003995B4297FA53200782B6C /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				003995B5297FA54A00782B6C /* CryptoProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -254,9 +246,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				003995B6297FA54A00782B6C /* CryptoProtocol.swift in Sources */,
 				00226D0F296F202E004E37D0 /* Coin.swift in Sources */,
 				00226D0729594F50004E37D0 /* AppCoordinator.swift in Sources */,
+				004DDBE62988E6A800C8DB9A /* CustomLabel.swift in Sources */,
 				00226D11296F232B004E37D0 /* Parser.swift in Sources */,
 				00226CD229555374004E37D0 /* User.swift in Sources */,
 				003995B829800A4700782B6C /* CryptoViewModel.swift in Sources */,
